@@ -1,7 +1,7 @@
 # Upper Confidence Bound
 
 # Importing the dataset
-dataset = read.csv('Ads_CTR_Optimisation.csv')
+dataset = read.csv('05. Reinforcement Learning/01. Upper Confidence Bound (UCB)/Ads_CTR_Optimisation.csv')
 
 # Implementing UCB
 N = 10000

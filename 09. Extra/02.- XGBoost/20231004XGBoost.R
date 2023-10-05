@@ -1,10 +1,10 @@
-# XGBoost
+# XGBoost para *clasificar*
 
-# Importing the dataset
-dataset = read.csv('Churn_Modelling.csv')
+# Cargar Datos
+dataset = read.csv('09. Extra/02.- XGBoost/Churn_Modelling.csv')
 dataset = dataset[4:14]
 
-# Encoding the categorical variables as factors
+# Codificar las variables categoricas como factores
 dataset$Geography = as.numeric(factor(dataset$Geography,
                                       levels = c('France', 'Spain', 'Germany'),
                                       labels = c(1, 2, 3)))
@@ -12,7 +12,7 @@ dataset$Gender = as.numeric(factor(dataset$Gender,
                                    levels = c('Female', 'Male'),
                                    labels = c(1, 2)))
 
-# Splitting the dataset into the Training set and Test set
+# Partir el conjunto en Train y Test
 # install.packages('caTools')
 library(caTools)
 set.seed(123)
@@ -20,19 +20,19 @@ split = sample.split(dataset$Exited, SplitRatio = 0.8)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 
-# Fitting XGBoost to the Training set
-# install.packages('xgboost')
+# Ajustar el XGBoost al Set de Train
+#install.packages('xgboost')
 library(xgboost)
 classifier = xgboost(data = as.matrix(training_set[-11]), label = training_set$Exited, nrounds = 10)
 
-# Predicting the Test set results
+# Predecir resultados en el conjunto de Test
 y_pred = predict(classifier, newdata = as.matrix(test_set[-11]))
 y_pred = (y_pred >= 0.5)
 
-# Making the Confusion Matrix
+# Matriz de confusión
 cm = table(test_set[, 11], y_pred)
 
-# Applying k-Fold Cross Validation
+# Acá va la aplicación del Cross Validation
 # install.packages('caret')
 library(caret)
 folds = createFolds(dataset$Exited, k = 10)
@@ -47,3 +47,4 @@ cv = lapply(folds, function(x) {
   return(accuracy)
 })
 accuracy = mean(as.numeric(cv))
+

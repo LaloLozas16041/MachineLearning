@@ -1,12 +1,44 @@
-# Machine learning
+# Machine Learning
 
 This space is created to consult and consume documents, codes and inputs that we use in the **_Machine Learning_** course that I have taught at the **_National Banking and Securities Commission_**, at the **_Faculty of Sciences_** and at the **_Anahuac University_**, the syllabus is shown below:
 
-+ Regression models
-+   Simple Linear Regression
-+ Sorting algorithms
-+ Grouping techniques
-+ Association rules
++ **Regression**
+  - Simple Linear Regression
+  - Multiple Linear Regression
+  - Polynomial Regression
+  - Support Vector Regression (SVR)
+  - Decision Tree Regression
+  - Random Forest Regression 
++ **Classification**
+  - Logistic Regression
+  - K-Nearest Neighbors
+  - Support Vector Machine
+  - Kernel SVM
+  - Naive Bayes
+  - Decision Tree Classification
+  - Random Forest Classification
++ **Clustering**
+  - K Means
+  - Hierarchical
++ **Association Rules**
+  - A Priori
+  - Eclat
++ **Reinforcement Learning**
+  - Upper Confidence Bound (UCB)
+  - Thompson Sampling
++ **Natural Language Processing**
++ **Deep Learning**
+  - Redes Neuronales Artificiales
+  - Redes Neuronales Recurrenntes
++ **Dimensionalty Reduction**
+  - PCA
+  - LDA
+  - Kernel PCA
++ **Temas Extra**
+  - Selección de Modelos
+  - XGBoost
+
+### Statement
 
 Each of the modules is designed to address three main points:
 

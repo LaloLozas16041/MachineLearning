@@ -1,10 +1,10 @@
-# SVR
+# SVR (Support Vector Regression)
 
-# Importing the dataset
-dataset = read.csv('Position_Salaries.csv')
-dataset = dataset[2:3]
+# Importando el conjunto de datos
+dataset <- read.csv('01. Regression/04. Support Vector Regression (SVR)/Position_Salaries.csv')
+dataset <- dataset[2:3]
 
-# Splitting the dataset into the Training set and Test set
+# Dividiendo el conjunto de datos en conjunto de entrenamiento y conjunto de prueba
 # # install.packages('caTools')
 # library(caTools)
 # set.seed(123)
@@ -12,22 +12,22 @@ dataset = dataset[2:3]
 # training_set = subset(dataset, split == TRUE)
 # test_set = subset(dataset, split == FALSE)
 
-# Feature Scaling
+# Escalado de características
 # training_set = scale(training_set)
 # test_set = scale(test_set)
 
-# Fitting SVR to the dataset
-# install.packages('e1071')
+# Ajustando SVR al conjunto de datos
+#install.packages('e1071')
 library(e1071)
-regressor = svm(formula = Salary ~ .,
-                data = dataset,
-                type = 'eps-regression',
-                kernel = 'radial')
+regressor <- svm(formula = Salary ~ .,
+                 data = dataset,
+                 type = 'eps-regression',
+                 kernel = 'radial')
 
-# Predicting a new result
-y_pred = predict(regressor, data.frame(Level = 6.5))
+# Prediciendo un nuevo resultado
+y_pred <- predict(regressor, data.frame(Level = 6.5))
 
-# Visualising the SVR results
+# Visualizando los resultados de SVR
 # install.packages('ggplot2')
 library(ggplot2)
 ggplot() +
@@ -35,19 +35,19 @@ ggplot() +
              colour = 'red') +
   geom_line(aes(x = dataset$Level, y = predict(regressor, newdata = dataset)),
             colour = 'blue') +
-  ggtitle('Truth or Bluff (SVR)') +
-  xlab('Level') +
-  ylab('Salary')
+  ggtitle('Verdad o Falsedad (SVR)') +
+  xlab('Nivel') +
+  ylab('Salario')
 
-# Visualising the SVR results (for higher resolution and smoother curve)
+# Visualizando los resultados de SVR (para una resolución más alta y una curva más suave)
 # install.packages('ggplot2')
 library(ggplot2)
-x_grid = seq(min(dataset$Level), max(dataset$Level), 0.1)
+x_grid <- seq(min(dataset$Level), max(dataset$Level), 0.1)
 ggplot() +
   geom_point(aes(x = dataset$Level, y = dataset$Salary),
              colour = 'red') +
   geom_line(aes(x = x_grid, y = predict(regressor, newdata = data.frame(Level = x_grid))),
             colour = 'blue') +
-  ggtitle('Truth or Bluff (SVR)') +
-  xlab('Level') +
-  ylab('Salary')
+  ggtitle('Verdad o Falsedad (SVR)') +
+  xlab('Nivel') +
+  ylab('Salario')

@@ -1,7 +1,7 @@
 # Cluster Jerarquico
 
 # Importar Datos
-dataset = read.csv('Mall_Customers.csv')
+dataset = read.csv('03. Clustering/02. Hierarchical/Mall_Customers.csv')
 dataset = dataset[4:5]
 
 # Uso del dendrograma para obtener el número de grupos óptimos

@@ -20,7 +20,7 @@ training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 
 # Ajuste de un Bosque Aleatorio al conjunto de entrenamiento
-# install.packages('randomForest')
+#install.packages('randomForest')
 library(randomForest)
 set.seed(123)
 classifier = randomForest(x = training_set[-3],
@@ -64,6 +64,6 @@ contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'dodgerblue', 'salmon'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'dodgerblue3', 'salmon3'))
 
-# Choosing the number of trees
+# Escoger número de árboles
 plot(classifier)
 text(classifier)

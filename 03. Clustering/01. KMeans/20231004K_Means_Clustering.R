@@ -32,6 +32,6 @@ clusplot(x = X,
          labels = 2,
          plotchar = FALSE,
          span = TRUE,
-         main = paste('Clusters de clientes'),
+         main = paste('Clusters de Clientes'),
          xlab = 'Ingreso Anual',
          ylab = 'Score de Gasto')
